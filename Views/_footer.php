@@ -5,9 +5,9 @@
         <div class="row">
 
             <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
-                <h5 class="text-uppercase">A-Trade App</h5>
+                <h5 class="text-uppercase">E-Trade App</h5>
                 <p>
-                    Bu, A-Trade App'in örnek bir footer içeriğidir. Buraya şirket veya uygulamanız hakkında kısa bir bilgi ekleyebilirsiniz.
+                    Bu, E-Trade App'in örnek bir footer içeriğidir. Buraya şirket veya uygulamanız hakkında kısa bir bilgi ekleyebilirsiniz.
                 </p>
             </div>
 
@@ -40,7 +40,7 @@
                         <a href="#!" class="text-dark"><i class="fas fa-phone-alt"></i> +90 123 456 78 90</a>
                     </li>
                     <li>
-                        <a href="#!" class="text-dark"><i class="fas fa-envelope"></i> info@atradeapp.com</a>
+                        <a href="#!" class="text-dark"><i class="fas fa-envelope"></i> info@etradeapp.com</a>
                     </li>
                     <li>
                         <a href="#!" class="text-dark"><i class="fas fa-map-marker-alt"></i> Beyhekim, 42100, Konya, Türkiye</a>
@@ -59,7 +59,7 @@
     </div>
 
     <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-        © 2024 A-Trade App | Tüm hakları saklıdır.
+        © 2024 E-Trade App | Tüm hakları saklıdır.
     </div>
 
 </footer>
