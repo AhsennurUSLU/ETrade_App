@@ -1,4 +1,8 @@
-<?php require "config.php"  ?>
+<?php include "config.php"  ?>
+<?php require "Libs/functions.php"  ?>
+
+
+
 <?php require "Views/_header.php"  ?>
 <?php require "Views/_navbar.php"  ?>
 
@@ -13,9 +17,6 @@
         <?php include "MainContent/_mainSlider.php"; ?>
         <div class="col-9">
 
-    
-
-          
 
         </div>
     </div>
@@ -30,12 +31,6 @@
     <br>
     <?php include "MainContent/_interestedCategories.php"; ?>
 </div>
-
-
-
-
-
-
 
 
 

@@ -48,6 +48,7 @@ $result = mysqli_query($connection, $sql);
                             <th scope="col">Kategori Açıklaması</th>
                             <th scope="col">Aktiflik Durumu</th>
                             <th scope="col">Oluşturma Tarihi</th>
+                            <th scope="col">Düzenle</th>
 
                         </tr>
                     </thead>
@@ -65,6 +66,8 @@ $result = mysqli_query($connection, $sql);
                         echo "<td>" . $row['description'] . "</td>";
                         echo "<td>" . ($row['isActive'] ? 'Aktif' : 'Pasif') . "</td>";
                         echo "<td>" . $row['createdAt'] . "</td>";
+                        echo "<td>" ."<button class='btn btn-light'>Düzenle</button>". "</td>";
+                        echo "<td>" . "<button class='btn btn-light'>Sil</button>"."</td>";
                         echo "</tr>";
                     }
                 } else {

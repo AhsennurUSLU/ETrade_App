@@ -1,62 +1,6 @@
 
-<?php require "../config.php"; ?>
-
-<?php require "../Views/_header.php"; ?>
-
-
 <?php
-
-
-
-
-// REGISTER İŞLEMLERİ
-
-
-function RegisterUser(string $email, string $password, int $isActive = 1)
-{
-    include "connect.php";
-
-    // $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
-
-//     $query = "INSERT INTO Users (email, password, isActive) VALUES (? , ? , ?)";
-//     $stmt = mysqli_prepare($connection,$query);
-
-//     mysqli_stmt_bind_param($stmt, 'ssi', $email, $password, $isActive);
-//     $result = mysqli_stmt_execute($stmt);
-   
-//     mysqli_stmt_close($stmt);
-//     mysqli_close($connection);
-
-//    return $result;  
-
-$hashedPassword = password_hash($password, PASSWORD_DEFAULT);
-
-
-$query = "INSERT INTO users (email, password, isActive) VALUES (?, ?, ?)";
-    $stmt = mysqli_prepare($connection, $query);
-
-    if ($stmt === false) {
-        die('mysqli_prepare() failed: ' . htmlspecialchars(mysqli_error($connection)));
-    }
-
-    // Parametreleri bağla
-    mysqli_stmt_bind_param($stmt, 'ssi', $email, $hashedPassword, $isActive);
-
-    // Sorguyu çalıştır
-    $result = mysqli_stmt_execute($stmt);
-
-    // Hata kontrolü
-    if ($result === false) {
-        die('mysqli_stmt_execute() failed: ' . htmlspecialchars(mysqli_stmt_error($stmt)));
-    }
-
-    // Kaynakları kapat
-    mysqli_stmt_close($stmt);
-    mysqli_close($connection);
-
-    return $result;  
-   
-}
+session_start();
 
 
 function control_input($data){
@@ -69,21 +13,11 @@ function control_input($data){
 
 
 
-
-// LOGIN İŞLEMLERİ
-
-
-if (isset($_POST["login"])) {
-    $email = $_POST["email"];
-    $password = $_POST["password"];
-
-    if ($email == user["email"] and $password == user["password"]) {
-
-        header('Location: ../index.php');
-    } else {
-        echo "<div class='alert alert-danger mb-0 text-center' role='alert' >Yanlış Kullanıcı adı veya şifre girdiniz!</div>";
-
-        header('Location: ../Pages/Login.php');
+function isLoggedin(){
+    if(isset($_SESSION["loggedin"])  &&  $_SESSION["loggedin"] == true){
+        return true;
+    }else{
+        return false;
     }
 }
 
@@ -150,11 +84,7 @@ function getDistrict()
     }
 }
 
-// $jsonFilePath = "il-ilce.json";
-// $jsonVerileri = getData($jsonFilePath);
-// print_r($jsonVerileri);
 
-// Şehir getirme işlemleri
 
 
 

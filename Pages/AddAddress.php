@@ -1,6 +1,7 @@
 <?php
+include "../config.php"  ;
 
-//include "../config.php";
+
 //include "../Libs/variables.php";
 
 include "../Libs/functions.php";

@@ -1,11 +1,7 @@
 <?php
 
-const user = array(
-    "email" => "ahsennuruslu@gmail.com",
-    "password" => "123456"
-);
 
-//$categories = array("Giyim","Kozmetik","Elektronik","Yiyecek","İçecek","Aksesuar","Kırtasiye","Kitap");
+
 
 $categories = [
 [
@@ -29,7 +25,7 @@ $categories = [
 [
     "id" => 4,
     "imageUrl" => "../Assets/images/kategoriler/kategori-yiyecek.jpg",
-    "categoryName" => "Yiyecek",
+    "categoryName" => "Süpermarket",
 
 ],
 [
@@ -47,7 +43,7 @@ $categories = [
 [
     "id" => 7,
     "imageUrl" => "../Assets/images/kategoriler/kategori-kirtasiye.jpg",
-    "categoryName" => "Kırtasiye",
+    "categoryName" => "Kırtasiye & Hobi",
 
 ],
 [
@@ -59,7 +55,7 @@ $categories = [
 [
     "id" => 9,
     "imageUrl" => "../Assets/images/kategoriler/kategori-ev.jpg",
-    "categoryName" => "Ev & Mobilya",
+    "categoryName" => "Ev & Yaşam",
 
 ],
 [
@@ -78,6 +74,12 @@ $categories = [
     "id" => 12,
     "imageUrl" => "../Assets/images/kategoriler/kategori-anne.jpg",
     "categoryName" => "Anne & Çocuk",
+
+],
+[
+    "id" => 13,
+    "imageUrl" => "../Assets/images/kategoriler/kategori-petshop.jpg",
+    "categoryName" => "Petshop",
 
 ],
 

@@ -1,6 +1,6 @@
-<?php require "../config.php"  ?>
-<?php require "../Views/_header.php"  ?>
-<?php require "../Views/_navbar.php"  ?>
+<?php include "../config.php"  ?>
+<?php include "../Views/_header.php"  ?>
+<?php include "../Views/_navbar.php"  ?>
 
 
 

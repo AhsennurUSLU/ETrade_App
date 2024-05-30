@@ -19,7 +19,7 @@
     <div class="row">
         <div class="col-3">
             <h3>Kategoriler</h3>
-           
+
         </div>
         <div class="col-9">
             <form class="d-flex">
@@ -40,6 +40,11 @@
                 </div>
             </div>
         <?php endforeach; ?>
+
+
+    </div>
+    <div class="row">
+
         <?php echo count($categories) . " kategori listelenmiştir."; ?>
     </div>
 </div>
