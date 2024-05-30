@@ -1,5 +1,5 @@
 <?php
-include "../config.php" ;
+include "../../config.php" ;
 require "../Libs/variables.php";
 
 ?>
@@ -21,7 +21,7 @@ require "../Libs/variables.php";
     <div class="col-9 ">
 
      
-            <img src="../Assets/images/profiller/female-profile.png" alt="profile" width="150px" class="ml-5"/>
+            <img src="../../Assets/images/profiller/female-profile.png" alt="profile" width="150px" class="ml-5"/>
 
             <div class="card-body">
 

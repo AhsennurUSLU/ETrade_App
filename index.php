@@ -1,20 +1,20 @@
 <?php include "config.php"  ?>
-<?php require "Libs/functions.php"  ?>
+<?php require "Main/Libs/functions.php"  ?>
 
 
 
-<?php require "Views/_header.php"  ?>
-<?php require "Views/_navbar.php"  ?>
+<?php require "Main/Views/_header.php"  ?>
+<?php require "Main/Views/_navbar.php"  ?>
 
 
 <div class="container my-5">
     <div class="row">
 
         <div class="col-3">
-            <!-- <?php include "Views/_sidebar.php"  ?> -->
+            <!-- <?php include "Main/Views/_sidebar.php"  ?> -->
         </div>
 
-        <?php include "MainContent/_mainSlider.php"; ?>
+        <?php include "Main/MainContent/_mainSlider.php"; ?>
         <div class="col-9">
 
 
@@ -24,19 +24,19 @@
     <br>
     <br>
     <br>
-    <?php include "MainContent/_brandSlider.php"; ?>
+    <?php include "Main/MainContent/_brandSlider.php"; ?>
     <br>
     <br>
     <br>
     <br>
-    <?php include "MainContent/_interestedCategories.php"; ?>
+    <?php include "Main/MainContent/_interestedCategories.php"; ?>
 </div>
 
 
 
-<?php include "Views/_scripts.php"  ?>
+<?php include "Main/Views/_scripts.php"  ?>
 
-<?php include "Views/_footer.php"  ?>
+<?php include "Main/Views/_footer.php"  ?>
 </body>
 
 </html>

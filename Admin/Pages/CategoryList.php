@@ -2,7 +2,7 @@
 
 <?php
 
-include "../../Libs/connect.php";
+include "../../Main/Libs/connect.php";
 
 $sql = "SELECT * FROM categories";
 $result = mysqli_query($connection, $sql);
@@ -36,6 +36,9 @@ $result = mysqli_query($connection, $sql);
 
         <div class="container">
 
+<div><a href="AddCategory.php"><i class="fa fa-arrow-left" ></i> Kategori Ekle</a></div>
+<br>
+<br>
             <h6 class="mb-4">Kategori Listesi</h6>
             <div class="table-responsive">
                 <table class="table">
@@ -54,10 +57,11 @@ $result = mysqli_query($connection, $sql);
                     </thead>
                   
                     <tbody>
-
+                 
                     <?php
                 if($result && mysqli_num_rows($result) > 0){
                     while($row = mysqli_fetch_assoc($result)){
+                        $id = $row['id'];
                         echo "<tr>";
                         echo "<th scope='row'>" . $row['id'] . "</th>";
                         echo "<td><img src='" . $row['image'] . "' alt='Category Image' width='150'></td>";
@@ -66,8 +70,9 @@ $result = mysqli_query($connection, $sql);
                         echo "<td>" . $row['description'] . "</td>";
                         echo "<td>" . ($row['isActive'] ? 'Aktif' : 'Pasif') . "</td>";
                         echo "<td>" . $row['createdAt'] . "</td>";
-                        echo "<td>" ."<button class='btn btn-light'>Düzenle</button>". "</td>";
-                        echo "<td>" . "<button class='btn btn-light'>Sil</button>"."</td>";
+                       
+                        echo "<td>" ."<a class='btn btn-light' type='submit' name='editCategory' href='EditCategory.php?id=$id' >Düzenle</a>". "</td>";
+                        echo "<td>" . "<a class='btn btn-light' type='submit' name='deleteCategory' href='DeleteCategory.php?id=$id' >Sil</a>"."</td>";
                         echo "</tr>";
                     }
                 } else {

@@ -3,7 +3,7 @@
 <?php  
 
 
-include "../../Libs/connect.php";
+include "../../Main/Libs/connect.php";
 
 
 $categoryName = $categoryDescription = $categoryImage = "";
@@ -34,7 +34,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         $filetype = pathinfo($filename, PATHINFO_EXTENSION);
 
         if(in_array($filetype, $allowed)){
-            $categoryImage = "../Assets/uploads/" . basename($filename);
+            $categoryImage = "../../Assets/uploads/" . basename($filename);
         } else {
             $categoryImage_err = "Lütfen geçerli bir görsel yolu girin.";
         }

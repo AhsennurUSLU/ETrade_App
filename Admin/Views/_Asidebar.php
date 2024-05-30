@@ -35,21 +35,21 @@
                         <div class="dropdown-menu bg-transparent border-0">
                             <a href="<?php echo BASE_URL; ?>Pages/CategoryList.php" class="dropdown-item">Kategori Listesi</a>
                             <a href="<?php echo BASE_URL; ?>Pages/AddCategory.php" class="dropdown-item">Kategori Ekle</a>
-                            <a href="404.html" class="dropdown-item">Kategori Düzenle</a>
+                           
                         </div>
                         <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="far fa-file-alt me-2"></i>Ürün Ayarları</a>
                         <div class="dropdown-menu bg-transparent border-0">
                             <a href="<?php echo BASE_URL; ?>Pages/ProductList.php" class="dropdown-item">Ürün Listesi</a>
                             <a href="<?php echo BASE_URL; ?>Pages/AddProduct.php" class="dropdown-item">Ürün Ekle</a>
-                            <a href="404.html" class="dropdown-item">Ürün Düzenle</a>
+                           
                         </div>
                         <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="far fa-file-alt me-2"></i>Marka Ayarları</a>
                         <div class="dropdown-menu bg-transparent border-0">
                             <a href="signin.html" class="dropdown-item">Marka Listesi</a>
                             <a href="signup.html" class="dropdown-item">Marka Ekle</a>
-                            <a href="404.html" class="dropdown-item">Marka Düzenle</a>
+                        
                         </div>
                     </div>
                     <a href="widget.html" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Adres Listesi</a>

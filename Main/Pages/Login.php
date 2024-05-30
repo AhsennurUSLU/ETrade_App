@@ -1,4 +1,4 @@
-<?php include "../config.php"  ?>
+<?php include "../../config.php"  ?>
 
 <?php require "../Libs/functions.php"; ?>
 <?php require "../Libs/connect.php"; ?>

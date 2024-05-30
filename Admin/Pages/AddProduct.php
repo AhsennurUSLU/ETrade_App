@@ -2,7 +2,7 @@
 
 <?php 
 
-include "../../Libs/connect.php";
+include "../../Main/Libs/connect.php";
 
 
 

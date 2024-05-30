@@ -20,7 +20,7 @@ require_once __DIR__ . '/../Libs/functions.php';
                     <a class="nav-link" href="<?php echo BASE_URL; ?>index.php">Anasayfa </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="<?php echo BASE_URL; ?>Pages/About.php">Hakkımızda</a>
+                    <a class="nav-link" href="<?php echo BASE_URL; ?>Main/Pages/About.php">Hakkımızda</a>
                 </li>
 
 
@@ -28,10 +28,10 @@ require_once __DIR__ . '/../Libs/functions.php';
                     <a class="nav-link" href="<?php echo BASE_URL; ?>index.php">Yardım</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="<?php echo BASE_URL; ?>Pages/Categories.php">Kategoriler</a>
+                    <a class="nav-link" href="<?php echo BASE_URL; ?>Main/Pages/Categories.php">Kategoriler</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="<?php echo BASE_URL; ?>Pages/MyCart.php">Sepetim</a>
+                    <a class="nav-link" href="<?php echo BASE_URL; ?>Main/Pages/MyCart.php">Sepetim</a>
                 </li>
 
             </ul>
@@ -47,8 +47,8 @@ require_once __DIR__ . '/../Libs/functions.php';
                             Profilim
                         </a>
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                            <a href="<?php echo BASE_URL; ?>Pages/Logout.php" class="nav-link">Çıkış Yap</a>
-                            <a href="<?php echo BASE_URL; ?>Pages/MyProfile.php" class="nav-link">Profilim</a>
+                            <a href="<?php echo BASE_URL; ?>Main/Pages/Logout.php" class="nav-link">Çıkış Yap</a>
+                            <a href="<?php echo BASE_URL; ?>Main/Pages/MyProfile.php" class="nav-link">Profilim</a>
                         </div>
                     </li>
                 <?php else : ?>
@@ -57,8 +57,8 @@ require_once __DIR__ . '/../Libs/functions.php';
                             Hesap
                         </a>
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="<?php echo BASE_URL; ?>Pages/Register.php">Kayıt Ol</a>
-                            <a class="dropdown-item" href="<?php echo BASE_URL; ?>Pages/Login.php">Giriş Yap</a>
+                            <a class="dropdown-item" href="<?php echo BASE_URL; ?>Main/Pages/Register.php">Kayıt Ol</a>
+                            <a class="dropdown-item" href="<?php echo BASE_URL; ?>Main/Pages/Login.php">Giriş Yap</a>
                         </div>
                     </li>
                 <?php endif; ?>

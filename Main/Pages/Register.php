@@ -1,5 +1,5 @@
 <?php
-include "../config.php"  ;
+include "../../config.php"  ;
 include "../Libs/functions.php";
 
 include "../Libs/connect.php";

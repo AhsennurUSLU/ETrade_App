@@ -15,7 +15,7 @@
 
 
     <!-- Favicon -->
-    <link href="<?php echo BASE_URL; ?>Assets/img/favicon.ico" rel="icon">
+    <link href="<?php echo BASE_URL; ?>../Assets/img/favicon.ico" rel="icon">
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -27,14 +27,14 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
 
     <!-- Libraries Stylesheet -->
-    <link href="<?php echo BASE_URL; ?>Assets/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-    <link href="<?php echo BASE_URL; ?>Assets/lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
+    <link href="<?php echo BASE_URL; ?>../Assets/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="<?php echo BASE_URL; ?>../Assets/lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
 
     <!-- Customized Bootstrap Stylesheet -->
-    <link href="<?php echo BASE_URL; ?>Assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="<?php echo BASE_URL; ?>../Assets/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Template Stylesheet -->
-    <link href="<?php echo BASE_URL; ?>Assets/css/style.css" rel="stylesheet">
+    <link href="<?php echo BASE_URL; ?>../Assets/css/style.css" rel="stylesheet">
 
 
     <title>E-Trade Yönetim Paneli</title>

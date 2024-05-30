@@ -1,4 +1,4 @@
-<?php include "../config.php"  ?>
+<?php include "../../config.php"  ?>
 
 <?php require "../Views/_header.php";  ?>
 <?php require "../Views/_navbar.php";  ?>
