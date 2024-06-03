@@ -1,3 +1,6 @@
+<?php if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+} ?>
 <?php include "../../config.php"  ?>
 
 <?php require "../Libs/functions.php"; ?>
@@ -6,7 +9,7 @@
 <?php 
 
 if(isLoggedin()){
-    header("location: ../index.php");
+    header("location: MyProfile.php?id=". $_SESSION["id"]);
     exit;
 }
 
@@ -28,7 +31,7 @@ if (isset($_POST["login"])) {
     }
     
     if(empty($email_err) && empty($password_err)){
-        $sql = "SELECT  email, password FROM users WHERE email = ?";
+        $sql = "SELECT  id, email, password FROM users WHERE email = ?";
 
         if($stmt = mysqli_prepare($connection,$sql)){
             $param_email = $email;
@@ -38,15 +41,16 @@ if (isset($_POST["login"])) {
                 mysqli_stmt_store_result($stmt);
 
                 if(mysqli_stmt_num_rows($stmt) == 1){
-                    mysqli_stmt_bind_result($stmt,$email,$hashed_password);
+                    mysqli_stmt_bind_result($stmt,$id,$email,$hashed_password);
                     if(mysqli_stmt_fetch($stmt)){
                         if(password_verify($password, $hashed_password)){
+                          
                             $_SESSION["loggedin"] = true;
-                           // $_SESSION["id"] = $id;
+                            $_SESSION["id"] = $id;
                             $_SESSION["email"] = $email;
                            // $_SESSION["userType"] = $userType;
 
-                            header("location: ../index.php ");
+                            header("location: MyProfile.php?id=".$id );
                         }else{
                             $login_err = "Yanlış Şifre girdiniz.";
                         }

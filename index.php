@@ -24,7 +24,7 @@
     <br>
     <br>
     <br>
-    <?php include "Main/MainContent/_brandSlider.php"; ?>
+   
     <br>
     <br>
     <br>

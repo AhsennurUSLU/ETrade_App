@@ -1,14 +1,66 @@
 <?php
+session_start();
 include "../../config.php"  ;
 
+require "../Libs/connect.php";
+if (!isset($_SESSION['id'])) {
+    header("location: Login.php");
+    exit;
+}
 
-//include "../Libs/variables.php";
 
 include "../Libs/functions.php";
 
 
+$user_id = $_SESSION['id'];
 
 
+// Kullanıcı bilgilerini çek
+// $sql = "SELECT * FROM user_details WHERE id = ?";
+// if ($stmt = mysqli_prepare($connection, $sql)) {
+//     mysqli_stmt_bind_param($stmt, "i", $user_id);
+//     mysqli_stmt_execute($stmt);
+//     $result = mysqli_stmt_get_result($stmt);
+
+//     if ($result && mysqli_num_rows($result) > 0) {
+//         $selectedUser = mysqli_fetch_assoc($result);
+//     } else {
+//         $selectedUser = null;
+//     }
+//     mysqli_stmt_close($stmt);
+// }
+
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['addAddress'])) {
+    $city = mysqli_real_escape_string($connection, $_POST['city']);
+    $district = mysqli_real_escape_string($connection, $_POST['district']);
+    $neighborhood = mysqli_real_escape_string($connection, $_POST['neighborhood']);
+    $postalcode = mysqli_real_escape_string($connection, $_POST['postalcode']);
+    $full_address = mysqli_real_escape_string($connection, $_POST['full_address']);
+    $title = mysqli_real_escape_string($connection, $_POST['title']);
+  
+
+
+    $sql = "INSERT INTO address (city, district, neighborhood, postal_code, full_address, address_title) VALUES (?, ?, ?, ?, ?, ?)";
+        if ($stmt = mysqli_prepare($connection, $sql)) {
+            mysqli_stmt_bind_param($stmt, "ssssss", $city, $district, $neighborhood, $postalcode, $full_address, $title);
+            if (mysqli_stmt_execute($stmt)) {
+                // user_info tablosuna ekleme
+                $address_id = mysqli_insert_id($connection);
+               
+                $user_info_sql = "INSERT INTO user_info (user_id,address_id) VALUES (?,?)";
+                if ($stmt2 = mysqli_prepare($connection, $user_info_sql)) {
+                    mysqli_stmt_bind_param($stmt2, "ii", $user_id, $address_id);
+                    mysqli_stmt_execute($stmt2);
+                    mysqli_stmt_close($stmt2);
+                }
+            }
+            mysqli_stmt_close($stmt);
+        }
+        header("location: MyAddress.php");
+        exit;
+    }
+
+mysqli_close($connection);
 
 ?>
 
@@ -38,7 +90,7 @@ include "../Libs/functions.php";
 
                 <div class="container">
                     <h2>Adres Ekle</h2>
-                    <form action="#" method="POST">
+                    <form action="AddAddress.php" method="POST">
                     
                         <div class="row">
                             <div class="col-6">
@@ -69,8 +121,8 @@ include "../Libs/functions.php";
                             </div>
                             <div class="col-6">
                                 <div class="mb-2 mr-2 ml-2">
-                                    <label for="postcode" class="form-label">Posta Kodu:</label>
-                                    <input type="text" id="postcode" name="postcode" class="form-control" required>
+                                    <label for="postalcode" class="form-label">Posta Kodu:</label>
+                                    <input type="text" id="postalcode" name="postalcode" class="form-control" required>
                                 </div>
                             </div>
                         </div>
@@ -84,7 +136,7 @@ include "../Libs/functions.php";
                                     <input type="text" id="title" name="title" class="form-control" required>
                                 </div>
 
-                        <button type="submit" name="add"class="btn btn-success">Ekle</button>
+                        <button type="submit" name="addAddress"class="btn btn-success">Ekle</button>
                     </form>
                 </div>
             </div>

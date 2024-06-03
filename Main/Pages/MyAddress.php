@@ -1,10 +1,51 @@
 <?php
-include "../../config.php"  ;
-require "../Libs/variables.php";
+session_start();
+include "../../config.php";
+require "../Libs/connect.php";
+
+if (!isset($_SESSION['id'])) {
+    header("location: Login.php");
+    exit;
+}
+
+$user_id = $_SESSION['id'];
 
 ?>
+<style>
+    .small-card {
+        width: 400px;
+        margin: 10px;
 
+    }
 
+    .small-card .card-header,
+    .small-card .card-body {
+        padding: 10px;
+    }
+
+    .small-card .card-header {
+        font-size: 1.1em;
+        background-color: #f8f9fa;
+        border-bottom: 1px solid #e9ecef;
+    }
+
+    .small-card .card-body {
+        font-size: 0.9em;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .card-buttons {
+        display: flex;
+        gap: 5px;
+    }
+
+    .card-buttons button {
+        font-size: 0.8em;
+        padding: 5px 10px;
+    }
+</style>
 <?php require "../Views/_header.php";  ?>
 <?php require "../Views/_navbar.php";  ?>
 
@@ -22,57 +63,38 @@ require "../Libs/variables.php";
 
 
 
-
-            <div class="card-body">
-
-            <a type="button" class="btn btn-success" href="AddAddress.php">Yeni Adres Ekle</a>
+        <a type="button" class="btn btn-success" href="AddAddress.php?id=<?php echo $user_id; ?>">Adres Ekle</a>
             <br>
             <br>
-                <form action="../Libs/functions.php" method="POST">
+            <?php
+            // Adresleri veritabanından çek
+            $sql = "SELECT * FROM address INNER JOIN user_info ON address.id = user_info.address_id WHERE user_info.user_id = ?";
+            if ($stmt = mysqli_prepare($connection, $sql)) {
+                mysqli_stmt_bind_param($stmt, "i", $user_id);
+                mysqli_stmt_execute($stmt);
+                $result = mysqli_stmt_get_result($stmt);
 
-                    <div class="mb-2 mr-2 ml-2">
-                        <label for="name" class="form-label">Şehir</label>
-                        <input type="text" class="form-control" name="name" id="name">
+                // Adres varsa ekrana yazdır
+                if ($result && mysqli_num_rows($result) > 0) {
+                while ($row = mysqli_fetch_assoc($result)) {
+            ?>
+                    <div class="card small-card">
+                        <div class="card-header"> <?php echo $row['address_title']; ?> </div>
+                        <div class="card-body">
+                            <?php echo $row['full_address']; ?>
+                            <div class="card-buttons">
+                                <a href="EditAddress.php?id=<?php echo $row['id']; ?>" class="btn btn-info btn-sm">Düzenle</a>
+                                <a href="DeleteAddress.php?id=<?php echo $row['id']; ?>" class="btn btn-danger btn-sm">Sil</a>
+                            </div>
+                        </div>
                     </div>
-                    <div class="mb-2 mr-2 ml-2">
-                        <label for="surname" class="form-label">Soyisim</label>
-                        <input type="text" class="form-control" name="surname" id="surname">
-                    </div>
-                    <div class="mb-2 mr-2 ml-2">
-                        <label for="gender" class="form-label">Cinsiyet</label>
-                        <input type="text" class="form-control" name="gender" id="gender">
-                    </div>
-                    <div class="mb-2 mr-2 ml-2">
-                        <label for="age" class="form-label">Yaş</label>
-                        <input type="text" class="form-control" name="age" id="age">
-                    </div>
-                    <div class="mb-2 mr-2 ml-2">
-                        <label for="email" class="form-label">E-Posta</label>
-                        <input type="email" class="form-control" name="email" id="email">
-                    </div>
-                    <div class="mb-2 mr-2 ml-2">
-                        <label for="password" class="form-label">Şifre</label>
-                        <input type="password" class="form-control" name="password" id="password">
-                    </div>
-                    <div class="mb-2 mr-2 ml-2">
-                        <label for="phone" class="form-label">Cep Telefonu</label>
-                        <input type="text" class="form-control" name="phone" id="phone">
-                    </div>
-                    <div class="mb-2 mr-2 ml-2">
-                        <label for="lenght" class="form-label">Boy</label>
-                        <input type="text" class="form-control" name="lenght" id="lenght">
-                    </div>
-                    <div class="mb-2 mr-2 ml-2">
-                        <label for="kilo" class="form-label">Kilo</label>
-                        <input type="text" class="form-control" name="kilo" id="kilo">
-                    </div>
-                    <input type="submit" name="edit" value="Düzenle" class="btn btn-success">
-                </form>
-              
-            
-
-            </div>
-
+            <?php
+                }} else {
+                    echo "<tr><td colspan='7'>Kayıtlı adres bulunamadı.</td></tr>";
+                }
+                mysqli_stmt_close($stmt);
+            }
+            ?>
         </div>
     </div>
 

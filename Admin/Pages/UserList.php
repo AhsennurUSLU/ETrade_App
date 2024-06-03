@@ -45,16 +45,18 @@ $result = mysqli_query($connection, $sql);
                     <thead>
                         <tr>
                             <th scope="col">#</th>
-                            <th scope="col">Ürün Resmi</th>
-                            <th scope="col">Ürün ID</th>
-                            <th scope="col">Ürün Kategori ID</th>
-                            <th scope="col">Ürün Kategori Adı</th>
-                            <th scope="col">Ürün Adı</th>
-                            <th scope="col">Ürün Açıklaması</th>
-                            <th scope="col">Ürün Fiyat</th>
-                            <th scope="col">Stok Durumu</th>
-                            <th scope="col">Aktiflik Durumu</th>
-                            <th scope="col">Oluşturma Tarihi</th>
+                            <th scope="col">Kullanıcı Resmi</th>
+                            <th scope="col">Kullanıcı ID</th>
+                            <th scope="col">Kullanıcı Adı</th>
+                            <th scope="col">Kullanıcı Soyadı</th>
+                            <th scope="col">Kullanıcı Cinsiyeti</th>
+                            <th scope="col">Kullanıcı Yaşı</th>
+                            <th scope="col">Kullanıcı Emaili</th>
+                            <th scope="col">Kullanıcı Doğum Tarihi</th>
+                            <th scope="col">Kullanıcı Telefon Numarası</th>
+                            <th scope="col">Kullanıcı Boy</th>
+                            <th scope="col">Kullanıcı Kilo</th>
+                            <th scope="col">Kullanıcı Aktifliği</th>
                             <th scope="col">İşlem</th>
 
                         </tr>

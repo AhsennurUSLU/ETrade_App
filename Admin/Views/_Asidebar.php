@@ -18,7 +18,7 @@
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>Kullanıcı Ayarları</a>
                         <div class="dropdown-menu bg-transparent border-0">
-                            <a href="button.html" class="dropdown-item">Kullanıcı Listesi</a>
+                            <a href="<?php echo BASE_URL; ?>Pages/UserList.php" class="dropdown-item">Kullanıcı Listesi</a>
                             <a href="typography.html" class="dropdown-item">Kullanıcı Düzenle</a>
                         </div>
                     </div>

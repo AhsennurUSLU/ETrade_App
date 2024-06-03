@@ -1,6 +1,8 @@
 
 <?php
-session_start();
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 
 
 function control_input($data){
@@ -20,8 +22,6 @@ function isLoggedin(){
         return false;
     }
 }
-
-
 
 
 

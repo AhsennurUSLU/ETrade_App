@@ -1,4 +1,7 @@
 <?php
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 include "../../config.php"  ;
 include "../Libs/functions.php";
 
@@ -67,7 +70,11 @@ if (isset($_POST["register"])) {
             mysqli_stmt_bind_param($stmt, "ss", $param_email, $param_password);
 
             if (mysqli_stmt_execute($stmt)) {
-                header("location: Login.php");
+                session_start();
+             
+                $_SESSION["id"] = $id;
+              
+                header("location: Login.php?id=$id");
             }else{
                 echo mysqli_error($connection);
                 echo "hata oluştu";
