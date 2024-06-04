@@ -23,6 +23,26 @@ function isLoggedin(){
     }
 }
 
+// delete addres fonksiyonu
+
+
+function deleteAddress($id) {
+    include "../Libs/connect.php";
+
+
+    $query1 = "DELETE FROM address_info WHERE address_id = $id";
+    $query2 = "DELETE FROM address WHERE id = $id";
+
+    $result1 = mysqli_query($connection, $query1);
+    $result2 = mysqli_query($connection, $query2);
+
+  
+    if ($result1 && $result2) {
+        return true;
+    } else {
+        return false;
+    }
+}
 
 
 

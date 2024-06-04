@@ -68,7 +68,7 @@ $user_id = $_SESSION['id'];
             <br>
             <?php
             // Adresleri veritabanından çek
-            $sql = "SELECT * FROM address INNER JOIN user_info ON address.id = user_info.address_id WHERE user_info.user_id = ?";
+            $sql = "SELECT * FROM address INNER JOIN address_info ON address.id = address_info.address_id WHERE address_info.user_id = ?";
             if ($stmt = mysqli_prepare($connection, $sql)) {
                 mysqli_stmt_bind_param($stmt, "i", $user_id);
                 mysqli_stmt_execute($stmt);
