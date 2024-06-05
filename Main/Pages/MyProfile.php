@@ -36,7 +36,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['AddUserDetails'])) {
     $height = mysqli_real_escape_string($connection, $_POST['height']);
     $kilo = mysqli_real_escape_string($connection, $_POST['kilo']);
 
-    $default_image_path = "../../Assets/user_details/female-profile.png";
+    $default_image_path = "../../Assets/user_details/profile.png";
     $image_path = $default_image_path;
 
     if (isset($_FILES["userImage"]) && $_FILES["userImage"]["size"] > 0) {
@@ -115,7 +115,7 @@ mysqli_close($connection);
                                 <?php if (isset($selectedUser["image"])) : ?>
                                     <img src="<?php echo $selectedUser["image"]; ?>" alt="<?php echo $selectedUser["name"]; ?>" class="img-thumbnail" id="imagePreview" style="cursor: pointer; max-width: 200px; height: auto;">
                                 <?php else : ?>
-                                    <img src="../../Assets/user_details/female-profile.png" alt="profile" width="200px" class="ml-5">
+                                    <img src="../../Assets/user_details/profile.png" alt="profile" width="200px" class="ml-5">
                                 <?php endif; ?>
                                 <input type="file" class="form-control-file" name="userImage" id="userImage" style="display: none;">
                             </div>

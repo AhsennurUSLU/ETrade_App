@@ -86,14 +86,10 @@ function getCategoryProductById(int $id){
    p.stock as product_stock,
    p.isActive as product_isActive,
    p.createdAt as product_createdAt
- FROM 
-   category_product cp 
- INNER JOIN 
-   categories c ON cp.category_id = c.id 
- INNER JOIN 
-   products p ON cp.product_id = p.id 
- WHERE 
-   cp.product_id = $id";
+ FROM category_product cp 
+ INNER JOIN categories c ON cp.category_id = c.id 
+ INNER JOIN products p ON cp.product_id = p.id 
+ WHERE cp.product_id = $id";
     $result = mysqli_query($connection,$query);
     mysqli_close($connection);
     return $result;
@@ -119,6 +115,36 @@ function deleteProduct($product_id) {
         return false;
     }
 }
+
+
+
+function getAddressUserById(int $id){
+  include "../../Main/Libs/connect.php";
+
+
+ 
+ $query = "SELECT 
+ u.id as user_id,
+ u.email as email, 
+ a.id as address_id, 
+ a.address_title as address_title, 
+ a.city as city,
+ a.district as district,
+ a.neighborhood as neighborhood,
+ a.postal_code as postal_code,
+ a.full_address as full_address
+FROM address_info ai
+INNER JOIN users u ON ai.user_id = u.id 
+INNER JOIN address a ON ai.address_id = a.id 
+WHERE ai.address_id = $id";
+
+$result = mysqli_query($connection,$query);
+mysqli_close($connection);
+return $result;
+}
+
+
+
 
 
 ?>

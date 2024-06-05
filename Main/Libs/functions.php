@@ -5,7 +5,8 @@ if (session_status() === PHP_SESSION_NONE) {
 }
 
 
-function control_input($data){
+function control_input($data)
+{
     $data = htmlspecialchars($data);
     $data = stripslashes($data);
 
@@ -15,10 +16,11 @@ function control_input($data){
 
 
 
-function isLoggedin(){
-    if(isset($_SESSION["loggedin"])  &&  $_SESSION["loggedin"] == true){
+function isLoggedin()
+{
+    if (isset($_SESSION["loggedin"])  &&  $_SESSION["loggedin"] == true) {
         return true;
-    }else{
+    } else {
         return false;
     }
 }
@@ -26,7 +28,8 @@ function isLoggedin(){
 // delete addres fonksiyonu
 
 
-function deleteAddress($id) {
+function deleteAddress($id)
+{
     include "../Libs/connect.php";
 
 
@@ -36,7 +39,7 @@ function deleteAddress($id) {
     $result1 = mysqli_query($connection, $query1);
     $result2 = mysqli_query($connection, $query2);
 
-  
+
     if ($result1 && $result2) {
         return true;
     } else {
@@ -46,17 +49,35 @@ function deleteAddress($id) {
 
 
 
+// Veri tabanından id ye göre ürün getirme
+
+
+
+function getProductById($product_id)
+{
+    include "../Libs/connect.php";
+
+    $query = "SELECT * FROM products WHERE id = ?";
+
+    $stmt = mysqli_prepare($connection, $query);
+    mysqli_stmt_bind_param($stmt, "i", $product_id);
+
+    mysqli_stmt_execute($stmt);
+
+    $result = mysqli_stmt_get_result($stmt);
+
+    return mysqli_fetch_assoc($result);
+}
+
+
+
+
+
+
 
 // JSON İŞLEMLERİ
 
-// $il_ilce = fopen("il-ilce.json","r");
-// $size = filesize("il-ilce.json");
 
-// $jsonData = json_decode(fread($il_ilce,$size),true);
-
-// $il = $jsonData["ilceler"][2]["il_adi"];
-// $ilce = $jsonData["ilceler"][3]["ilce_adi"];
-// echo $jsonData["ilceler"][3]["ilce_adi"];
 
 
 $jsonFilePath = "il-ilce.json";

@@ -19,7 +19,7 @@
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>Kullanıcı Ayarları</a>
                         <div class="dropdown-menu bg-transparent border-0">
                             <a href="<?php echo BASE_URL; ?>Pages/UserList.php" class="dropdown-item">Kullanıcı Listesi</a>
-                            <a href="typography.html" class="dropdown-item">Kullanıcı Düzenle</a>
+                          
                         </div>
                     </div>
                     <div class="nav-item dropdown">
@@ -52,7 +52,14 @@
                         
                         </div>
                     </div>
-                    <a href="widget.html" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Adres Listesi</a>
+                  
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="far fa-file-alt me-2"></i>Adresler</a>
+                        <div class="dropdown-menu bg-transparent border-0">
+                            <a href="<?php echo BASE_URL; ?>Pages/AddressList.php" class="dropdown-item">Adres Listesi</a>
+                 
+                        </div>
+                    </div>
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="far fa-file-alt me-2"></i>Yorum Ayarları</a>
                         <div class="dropdown-menu bg-transparent border-0">

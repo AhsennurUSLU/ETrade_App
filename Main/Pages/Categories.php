@@ -39,15 +39,18 @@ $result = mysqli_query($connection, $sql);
         <?php
         if ($result && mysqli_num_rows($result) > 0) {
             while ($row = mysqli_fetch_assoc($result)) {
+                $category_id = $row['id'];
                 $image =  $row['image'];
                 $name = $row['name'];
                 echo "<div class='col-md-3 mb-4'>";
+                echo "<a href='Products.php?category_id=$category_id' class='text-decoration-none text-dark'>"; 
                 echo  "  <div class='card'>";
                 echo       "<img src='$image' class='card-img-top' alt='$name'>";
                 echo       "<div class='card-body'>";
                 echo          "<h5 class='card-title'>$name</h5>";
                 echo      "</div>";
                 echo    "</div>";
+                echo "</a>";
                 echo   "</div>";
             }
         } else {

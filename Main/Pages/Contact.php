@@ -7,9 +7,14 @@
 
 
 <div class="container mt-5 mb-5">
+  
     <h1 class="mb-4">İletişim</h1>
+    <br>
+<br>
+<br>
+    <div class="row">
 
-    <!-- İletişim Bilgileri -->
+    <div class="col-4 mr-1">
     <div class="mb-5">
         <h3>İletişim Bilgileri</h3>
         <p><strong>Adres:</strong> Beyhekim, 42100 Sokak, Konya, Türkiye</p>
@@ -17,9 +22,9 @@
         <p><strong>E-posta:</strong> info@atradeapp.com</p>
         <p><strong>Çalışma Saatleri:</strong> Pazartesi - Cuma: 09:00 - 18:00</p>
     </div>
+    </div>
 
-    <!-- İletişim Formu -->
-
+    <div class="col-7">
     <form action="send_contact.php" method="POST">
     <h3>Bizimle İletişime Geçin</h3>
     <br>
@@ -42,9 +47,12 @@
         <button type="submit" class="btn btn-primary">Gönder</button>
     </form>
 </div>
+</div>
+</div>
 
 
-
+<br>
+<br>
 
 
 

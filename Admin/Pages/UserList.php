@@ -6,7 +6,7 @@
 include "../../Main/Libs/connect.php";
 include "../Libs/functions.php";
 
-$sql = "SELECT * FROM products";
+$sql = "SELECT * FROM user_details";
 $result = mysqli_query($connection, $sql);
 
 ?>
@@ -35,11 +35,9 @@ $result = mysqli_query($connection, $sql);
 
 
         <div class="container">
-        <div><a href="AddProduct.php"><i class="fa fa-arrow-left" ></i> Ürün Ekle</a></div>
-<br>
-<br>
+      
 
-            <h6 class="mb-4">Ürün Listesi</h6>
+            <h6 class="mb-4">Kullanıcı Listesi</h6>
             <div class="table-responsive">
                 <table class="table">
                     <thead>
@@ -57,7 +55,7 @@ $result = mysqli_query($connection, $sql);
                             <th scope="col">Kullanıcı Boy</th>
                             <th scope="col">Kullanıcı Kilo</th>
                             <th scope="col">Kullanıcı Aktifliği</th>
-                            <th scope="col">İşlem</th>
+                        
 
                         </tr>
                     </thead>
@@ -65,35 +63,28 @@ $result = mysqli_query($connection, $sql);
                         <?php
                     
                         if($result && mysqli_num_rows($result) > 0){
-                            while($row = mysqli_fetch_assoc($result)){
-                                $product_id = $row['id'];
-                                $category_product_result = getCategoryProductById($product_id);
-                                if ($category_product_result && mysqli_num_rows($category_product_result) > 0) {
-                                    while ($category_product_row = mysqli_fetch_assoc($category_product_result)) {
+                            while($user_row = mysqli_fetch_assoc($result)){
+          
                                 echo  "<tr>";
-                                echo     "<th scope='row'>" . $category_product_row["product_id"]  . "</th>";
-                                echo     "<td><img src='"  . $category_product_row["product_image"] . "' alt='Category Image' width='150'> </td>";
-                                echo    "<td>" . $category_product_row["product_id"] . "</td>";
-                                echo     "<td>" . $category_product_row["category_id"] . "</td>";
-                                echo     "<td>" . $category_product_row["category_name"] . "</td>";
-                                echo     "<td>" . $category_product_row["product_name"] . "</td>";
-                                echo     "<td>" . $category_product_row["product_description"] . "</td>";
-                                echo     "<td>" . $category_product_row["product_price"] . " TL" ."</td>";
-                                echo     "<td>" .  $category_product_row["product_stock"] . " adet"."</td>";
-                                echo     "<td>" . ($category_product_row['product_isActive'] ? 'Aktif' : 'Pasif')  . "</td>";
-                                echo     "<td>" . $category_product_row["product_createdAt"] . "</td>";
-                                echo "<td>" ."<a class='btn btn-light' type='submit' name='editCategory' href='EditProduct.php?id=$product_id' >Düzenle</a>". "</td>";
-                                echo "<td>" . "<a class='btn btn-light' type='submit' name='deleteCategory' href='DeleteProduct.php?id=$product_id' >Sil</a>"."</td>";
+                                echo    "<td>" . "</td>";
+                                echo     "<td><img src='"  . $user_row["image"] . "' alt='User Image' width='150'> </td>";
+                                echo    "<td>" . $user_row["id"] . "</td>";
+                                echo     "<td>" . $user_row["name"] . "</td>";
+                                echo     "<td>" . $user_row["surname"] . "</td>";
+                                echo     "<td>" . $user_row["gender"] . "</td>";
+                                echo     "<td>" . $user_row["age"] . "</td>";
+                                echo     "<td>" . $user_row["email"] ."</td>";
+                                echo     "<td>" .  $user_row["birthdate"] ."</td>";
+                                echo     "<td>" .  $user_row["phone"] ."</td>";
+                                echo     "<td>" .  $user_row["height"] ."</td>";
+                                echo     "<td>" .  $user_row["kilo"] ."</td>";
+                                echo     "<td>" . ($user_row['isActive'] ? 'Aktif' : 'Pasif')  . "</td>";
                                 echo "</tr>";
                             }
                         } else {
-                            echo "<tr><td colspan='12'>Kategori veya ürün bulunamadı.</td></tr>";
+                            echo "<tr><td colspan='12'>Kayıtlı kullanıcı bulunamadı.</td></tr>";
                         }
-                    }
-                } else {
-                    echo "<tr><td colspan='12'>Ürün bulunamadı.</td></tr>";
-                }
-                   
+                 
                         ?>
                     </tbody>
                 </table>
