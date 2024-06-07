@@ -1,4 +1,9 @@
-<footer class="bg-light text-center text-lg-start mt-auto">
+<style>
+    .footer-custom {
+        background-color: #EEEEEE;
+    }
+</style>
+<footer class="footer-custom text-center text-lg-start mt-auto">
 
     <div class="container p-4 m-5">
 
@@ -7,7 +12,7 @@
             <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
                 <h5 class="text-uppercase">E-Trade App</h5>
                 <p>
-                    Bu, E-Trade App'in örnek bir footer içeriğidir. Buraya şirket veya uygulamanız hakkında kısa bir bilgi ekleyebilirsiniz.
+                Biz E-Trade App olarak, kullanıcılarımıza en iyi alışveriş deneyimini sunmak amacıyla kurulmuş bir e-ticaret platformuyuz. Müşteri memnuniyetini ön planda tutarak, kaliteli ürünleri uygun fiyatlarla sunmayı hedefliyoruz
                 </p>
             </div>
 
@@ -20,13 +25,13 @@
                         <a href="<?php echo BASE_URL; ?>" class="text-dark">Anasayfa</a>
                     </li>
                     <li>
-                        <a href="<?php echo BASE_URL; ?>Pages/About.php" class="text-dark">Hakkımızda</a>
+                        <a href="<?php echo BASE_URL; ?>Main/Pages/About.php" class="text-dark">Hakkımızda</a>
                     </li>
                     <li>
                         <a href="<?php echo BASE_URL; ?>" class="text-dark">Hizmetler</a>
                     </li>
                     <li>
-                        <a href="<?php echo BASE_URL; ?>Pages/Contact.php" class="text-dark">İletişim</a>
+                        <a href="<?php echo BASE_URL; ?>Main/Pages/Contact.php" class="text-dark">İletişim</a>
                     </li>
                 </ul>
             </div>
@@ -40,10 +45,10 @@
                         <a href="#!" class="text-dark"><i class="fas fa-phone-alt"></i> +90 123 456 78 90</a>
                     </li>
                     <li>
-                        <a href="#!" class="text-dark"><i class="fas fa-envelope"></i> info@etradeapp.com</a>
+                        <a href="#!" class="text-dark"><i class="fas fa-envelope"></i> etradeinfo7@gmail.com</a>
                     </li>
                     <li>
-                        <a href="#!" class="text-dark"><i class="fas fa-map-marker-alt"></i> Beyhekim, 42100, Konya, Türkiye</a>
+                        <a href="#!" class="text-dark"><i class="fas fa-map-marker-alt"></i>  Siteler,06160, Altındağ, Ankara, Türkiye</a>
                     </li>
                 </ul>
                 <div class="mt-3">

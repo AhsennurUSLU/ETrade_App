@@ -5,6 +5,16 @@ if (session_status() === PHP_SESSION_NONE) {
 }
 
 
+// Sepeti boşaltma işlemi
+if (isset($_POST['empty_cart'])) {
+    unset($_SESSION['cart']);
+
+    header("Location: Pages/Categories.php");
+
+}
+
+
+
 function control_input($data)
 {
     $data = htmlspecialchars($data);
@@ -48,9 +58,7 @@ function deleteAddress($id)
 }
 
 
-
 // Veri tabanından id ye göre ürün getirme
-
 
 
 function getProductById($product_id)
@@ -70,6 +78,35 @@ function getProductById($product_id)
 }
 
 
+// Search ve filtreleme işlemleri
+
+
+
+
+
+function searchProducts($search_term) {
+    include "connect.php";
+
+    $search_term = mysqli_real_escape_string($connection, $search_term);
+
+ 
+    $query = "SELECT * FROM products WHERE name LIKE '%$search_term%' OR description LIKE '%$search_term%'";
+ 
+    $result = mysqli_query($connection, $query);
+    if (!$result) {
+        die("Arama sorgusu başarısız: " . mysqli_error($connection));
+    }
+
+    
+    $products = [];
+    if ($result && mysqli_num_rows($result) > 0) {
+        while ($row = mysqli_fetch_assoc($result)) {
+            $products[] = $row; 
+        }
+    }
+
+    return $products;
+}
 
 
 

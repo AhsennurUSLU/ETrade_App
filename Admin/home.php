@@ -1,4 +1,15 @@
+
 <?php require "Aconfig.php"  ?>
+<?php
+// session_start();
+// // Eğer kullanıcı giriş yapmamışsa, giriş sayfasına yönlendir
+// if(!isset($_SESSION['user_id'])) {
+//     header("Location: Pages/Login.php");
+//     exit();
+// }
+// ?>
+
+
 <?php include "Views/_Aheader.php" ?>
 
 <div class="container-fluid position-relative bg-white d-flex p-0">

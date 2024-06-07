@@ -1,5 +1,5 @@
-<?php include "../../config.php"; ?>
-<?php include "../Libs/connect.php"; ?>
+<?php include __DIR__ . "/../../config.php"; ?>
+<?php include __DIR__ . "/../Libs/connect.php"; ?>
 
 <?php
 // Gelen kategori ID'sini alın
@@ -32,8 +32,8 @@ $result = mysqli_stmt_get_result($stmt);
 mysqli_close($connection);
 ?>
 
-<?php require "../Views/_header.php"; ?>
-<?php require "../Views/_navbar.php"; ?>
+<?php require __DIR__ . "/../Views/_header.php"; ?>
+<?php require __DIR__ . "/../Views/_navbar.php"; ?>
 
 <style>
     .card-img-top {
@@ -75,7 +75,7 @@ mysqli_close($connection);
                 echo "      <div class='card-footer'>";
                 echo "          <form class='add-to-cart-form' method='POST' action=''>";
                 echo "              <input type='hidden' name='product_id' value='$product_id'>";
-                echo "              <button type='submit' name='add_to_cart' class='btn btn-primary'>Sepete Ekle</button>";
+                echo "              <button type='submit' name='add_to_cart' class='btn' style='background-color: #3C5B6F; color:white;'>Sepete Ekle</button>";
                 echo "          </form>";
                 echo "      </div>";
                 echo "  </div>";
@@ -88,7 +88,7 @@ mysqli_close($connection);
     </div>
 </div>
 
-<script>
+ <script>
 document.addEventListener('DOMContentLoaded', function() {
     const forms = document.querySelectorAll('.add-to-cart-form');
 
@@ -115,7 +115,9 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
-</script>
+</script>  
 
-<?php include "../Views/_scripts.php"; ?>
-<?php include "../Views/_footer.php"; ?>
+
+
+<?php include __DIR__ . "/../Views/_scripts.php"; ?>
+<?php include __DIR__ . "/../Views/_footer.php"; ?>

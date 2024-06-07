@@ -86,13 +86,13 @@ if (isset($_POST["login"])) {
 
     <div class="card mt-5">
 
-        <div class="card-header text-center">
+        <div class="card-header text-center" style="background-color: #153448; color: white;">
             <h4>Merhaba,</h4>
             <h6>Trade’a giriş yap veya hesap oluştur, indirimleri kaçırma!</h6>
         </div>
 
 
-        <div class="card-body">
+        <div class="card-body"> 
             <br>
             <form action="Login.php" method="POST">
 
@@ -106,7 +106,7 @@ if (isset($_POST["login"])) {
                 </div>
                 <br>
                 <div class="form-group text-center mt-3 ">
-                    <input type="submit" name="login" value="Giriş Yap" class="btn btn-success">
+                    <input type="submit" name="login" value="Giriş Yap" class="btn" style="background-color: #3C5B6F; color: white;">
 
                 </div>
             </form>

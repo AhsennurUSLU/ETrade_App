@@ -63,7 +63,7 @@ $user_id = $_SESSION['id'];
 
 
 
-        <a type="button" class="btn btn-success" href="AddAddress.php?id=<?php echo $user_id; ?>">Adres Ekle</a>
+        <a type="button" class="btn" style="background-color: #3C5B6F; color:white;" href="AddAddress.php?id=<?php echo $user_id; ?>">Adres Ekle</a>
             <br>
             <br>
             <?php
@@ -83,8 +83,8 @@ $user_id = $_SESSION['id'];
                         <div class="card-body">
                             <?php echo $row['full_address']; ?>
                             <div class="card-buttons">
-                                <a href="EditAddress.php?id=<?php echo $row['id']; ?>" class="btn btn-info btn-sm">Düzenle</a>
-                                <a href="DeleteAddress.php?id=<?php echo $row['id']; ?>" class="btn btn-danger btn-sm">Sil</a>
+                                <a href="EditAddress.php?id=<?php echo $row['id']; ?>" class="btn btn-sm"style="background-color: #3C5B6F; color:white;">Düzenle</a>
+                                <a href="DeleteAddress.php?id=<?php echo $row['id']; ?>" class="btn btn-sm" style="background-color: #6D2932; color:white;">Sil</a>
                             </div>
                         </div>
                     </div>
@@ -100,7 +100,12 @@ $user_id = $_SESSION['id'];
 
 
 </div>
-
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 
 <?php include "../Views/_scripts.php"  ?>

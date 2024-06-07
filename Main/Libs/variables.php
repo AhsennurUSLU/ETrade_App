@@ -1,92 +1,6 @@
 <?php
 
 
-
-
-$categories = [
-[
-    "id" => 1,
-    "imageUrl" => "../Assets/images/kategoriler/kategori-giyim.jpg",
-    "categoryName" => "Giyim",
-    
-],
-[
-    "id" => 2,
-    "imageUrl" => "../Assets/images/kategoriler/kategori-kozmetik.jpg",
-    "categoryName" => "Kozmetik",
-
-],
-[
-    "id" => 3,
-    "imageUrl" => "../Assets/images/kategoriler/kategori-elektronik.jpg",
-    "categoryName" => "Elektronik",
-
-],
-[
-    "id" => 4,
-    "imageUrl" => "../Assets/images/kategoriler/kategori-yiyecek.jpg",
-    "categoryName" => "Süpermarket",
-
-],
-[
-    "id" => 5,
-    "imageUrl" => "../Assets/images/kategoriler/kategori-icecek.jpg",
-    "categoryName" => "İçecek",
-
-],
-[
-    "id" => 6,
-    "imageUrl" => "../Assets/images/kategoriler/kategori-aksesuar.jpg",
-    "categoryName" => "Saat & Aksesuar",
-
-],
-[
-    "id" => 7,
-    "imageUrl" => "../Assets/images/kategoriler/kategori-kirtasiye.jpg",
-    "categoryName" => "Kırtasiye & Hobi",
-
-],
-[
-    "id" => 8,
-    "imageUrl" => "../Assets/images/kategoriler/kategori-kitap.jpg",
-    "categoryName" => "Kitap",
-
-],
-[
-    "id" => 9,
-    "imageUrl" => "../Assets/images/kategoriler/kategori-ev.jpg",
-    "categoryName" => "Ev & Yaşam",
-
-],
-[
-    "id" => 10,
-    "imageUrl" => "../Assets/images/kategoriler/kategori-ayakkabi.jpg",
-    "categoryName" => "Ayakkabı & Çanta",
-
-],
-[
-    "id" => 11,
-    "imageUrl" => "../Assets/images/kategoriler/kategori-spor.jpg",
-    "categoryName" => "Spor & Outdoor",
-
-],
-[
-    "id" => 12,
-    "imageUrl" => "../Assets/images/kategoriler/kategori-anne.jpg",
-    "categoryName" => "Anne & Çocuk",
-
-],
-[
-    "id" => 13,
-    "imageUrl" => "../Assets/images/kategoriler/kategori-petshop.jpg",
-    "categoryName" => "Petshop",
-
-],
-
-
-];
-
-
 $brands = [
 [
     "id" => 1,
@@ -132,18 +46,35 @@ $brands = [
 ],
 [
     "id" => 7,
-    "category-id" => 4,
-    "brand-name" => "Torku",
-    "brand-logo" => "Assets/images/markalar/torku.png"
+    "category-id" => 1,
+    "brand-name" => "Lacoste",
+    "brand-logo" => "Assets/images/markalar/lacoste.jpg"
 
 ],
 [
     "id" => 8,
-    "category-id" => 4,
-    "brand-name" => "Eti",
-    "brand-logo" => "Assets/images/markalar/eti.jpg"
+    "category-id" => 1,
+    "brand-name" => "Bershka",
+    "brand-logo" => "Assets/images/markalar/bershka.png"
 
 ],
+[
+    "id" => 9,
+    "category-id" => 4,
+    "brand-name" => "Adidas",
+    "brand-logo" => "Assets/images/markalar/adidas.png"
+
+],
+[
+    "id" => 10,
+    "category-id" => 4,
+    "brand-name" => "Lumberjack",
+    "brand-logo" => "Assets/images/markalar/lumber.png"
+
+],
+
+
+
 ];
     
 

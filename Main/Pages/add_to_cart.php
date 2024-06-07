@@ -18,4 +18,6 @@ if (isset($_POST['product_id'])) {
         'message' => 'Ürün sepete eklendi!'
     ]);
 }
+
+
 ?>

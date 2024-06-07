@@ -45,9 +45,6 @@ if (isset($_POST["register"])) {
     }
 
 
-
-
-
     if (empty(trim($_POST["password"]))) {
         $password_err = "Şifre boş geçilemez";
     } //else if (!preg_match('/^[A-Za-z][A-Za-z0-9]{5,31}$/', $_POST["password"])) {
@@ -89,11 +86,11 @@ if (isset($_POST["register"])) {
 <?php require "../Views/_navbar.php";  ?>
 
 <br>
-<div class="container col-12 col-md-6 col-lg-4 mt-5">
+<div class="container col-12 col-md-6 col-lg-4 mt-5" >
 
     <div class="card mt-5">
 
-        <div class="card-header text-center">
+        <div class="card-header text-center" style="background-color: #153448; color: white;">
             <h4>Merhaba,</h4>
             <h6>Trade’a giriş yap veya hesap oluştur, indirimleri kaçırma!</h6>
         </div>
@@ -139,7 +136,9 @@ if (isset($_POST["register"])) {
                 <br>
                 <br>
                 <div class="form-group text-center mt-3 ">
-                <input type="submit" name="register" value="Kayıt Ol" class="btn btn-success">
+                <input type="submit" name="register" value="Kayıt Ol" class="btn" style="background-color: #3C5B6F; color: white;">
+                <br>
+                <i style="font-size: small;">Kayıt Ol'a basarak üyelik sözleşmesini kabul ediyorum.</i>
                 </div>
             </form>
 

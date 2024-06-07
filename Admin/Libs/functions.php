@@ -34,28 +34,6 @@ function deleteCategory(int $id) {
     return $result;
 }
 
-// Veri tabanında bulunan kategori sayısını getirme
-
-
-// function getCategoryCount() {
-//     include "../../Main/Libs/connect.php"; 
-
-//     $query = "SELECT COUNT(*) AS total FROM categories";
-//     $result = mysqli_query($connection, $query);
-
-//     if ($result) {
-//         $row = mysqli_fetch_assoc($result);
-//         $total_categories = $row['total'];
-        
-//         mysqli_close($connection);
-//         return $total_categories;
-//     } else {
-//         echo "Kayıt sayısı alınamadı: " . mysqli_error($connection);
-//         mysqli_close($connection);
-//         return false; 
-//     }
-// }
-
 
 // Ürün ID'si getirme
 
@@ -115,6 +93,8 @@ function deleteProduct($product_id) {
         return false;
     }
 }
+
+
 
 
 

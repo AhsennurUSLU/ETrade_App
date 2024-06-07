@@ -3,8 +3,6 @@
         <a href="#" class="btn btn-light  btn-pill m-2">Giyim</a>
         <a href="#" class="btn btn-light  btn-pill m-2">Kozmetik</a>
         <a href="#" class="btn btn-light  btn-pill m-2">Elektronik</a>
-        <a href="#" class="btn btn-light  btn-pill m-2">Yiyecek</a>
-        <a href="#" class="btn btn-light  btn-pill m-2">İçecek</a>
         <a href="#" class="btn btn-light  btn-pill m-2">Saat & Aksesuar</a>
         <a href="#" class="btn btn-light  btn-pill m-2">Kırtasiye</a>
         <a href="#" class="btn btn-light  btn-pill m-2">Kitap</a>

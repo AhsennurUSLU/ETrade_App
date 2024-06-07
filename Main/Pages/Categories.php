@@ -1,8 +1,8 @@
-<?php include "../../config.php"  ?>
+<?php include __DIR__.  "/../../config.php"  ?>
 
 
 <?php
-include "../Libs/connect.php";
+include __DIR__. "/../Libs/connect.php";
 
 $sql = "SELECT * FROM categories";
 $result = mysqli_query($connection, $sql);
@@ -19,8 +19,8 @@ $result = mysqli_query($connection, $sql);
 </style>
 
 
-<?php require "../Views/_header.php";  ?>
-<?php require "../Views/_navbar.php";  ?>
+<?php require __DIR__.  "/../Views/_header.php";  ?>
+<?php require __DIR__.  "/../Views/_navbar.php";  ?>
 
 <div class="container mt-5">
     <div class="row">
@@ -65,6 +65,6 @@ $result = mysqli_query($connection, $sql);
 </div>
 
 
-<?php include "../Views/_scripts.php"  ?>
+<?php include __DIR__.  "/../Views/_scripts.php"  ?>
 
-<?php include "../Views/_footer.php"; ?>
+<?php include __DIR__.  "/../Views/_footer.php"; ?>

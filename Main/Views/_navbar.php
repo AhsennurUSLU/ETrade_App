@@ -1,23 +1,19 @@
 <?php
-if (session_status() == PHP_SESSION_NONE) {
-    session_start();
-}
+
+require_once __DIR__ . '/../../config.php';
 require_once __DIR__ . '/../Libs/functions.php';
 
-// Sepeti boşaltma işlemi
-if (isset($_POST['empty_cart'])) {
-    unset($_SESSION['cart']); 
-    
-    //header("Location: cart.php");
-    
-}
+
 ?>
 
+<style>
+    .navbar-custom {
+        background-color: #EEEEEE;
+    }
+</style>
 
 
-
-
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light navbar-custom">
     <div class="container">
 
         <a class="navbar-brand" href="<?php echo BASE_URL; ?>index.php">E-Trade </a>
@@ -50,17 +46,20 @@ if (isset($_POST['empty_cart'])) {
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                             <?php
+                            $yol =  BASE_URL . "Main/Pages/MyCart.php";
+                            $yol2 =  BASE_URL . "Main/Libs/functions.php";
                             if ($cart_count > 0) {
                                 foreach ($_SESSION['cart'] as $product_id => $quantity) {
-                                    // Ürün adını ve adetini al
-                                  
-                                    $product_name = getProductById($product_id)['name'];
-                                    echo "<li><a class='dropdown-item' href='#'>$product_name <span class='badge bg-primary'>$quantity</span></a></li>";
+                                    $product = getProductById($product_id);
+                                    if ($product) {
+                                        $product_name = $product['name'];
+                                        echo "<li><a class='dropdown-item' href='#'>$product_name <span class='badge bg-primary'>$quantity</span></a></li>";
+                                    }
                                 }
                                 echo "<li><hr class='dropdown-divider'></li>";
-                                echo "<li><a class='dropdown-item' href='#'>Sepete Git</a></li>";
-                                echo "<form method='POST' actions='_navbar.php'>";
-                                echo  "<button type='submit' name='empty_cart' class='btn btn-danger'>Sepeti Boşalt</button>";
+                                echo "<li><a class='dropdown-item' href='$yol'>Sepete Git</a></li>";
+                                echo "<form method='POST' action='$yol2'>";
+                                echo  "<button type='submit' name='empty_cart' class='btn btn-light'>Sepeti Boşalt</button>";
                                 echo  "</form>";
                             } else {
                                 echo "<li><p class='dropdown-item-text'>Sepetinizde ürün bulunmamaktadır.</p></li>";
@@ -83,16 +82,15 @@ if (isset($_POST['empty_cart'])) {
             <ul class="navbar-nav mb-2 mb-lg-0">
 
                 <?php if (isLoggedin()) : ?>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">Hoş geldiniz, <?php echo $_SESSION["email"] ?></a>
-                    </li>
+
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Profilim
                         </a>
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                            <a href="<?php echo BASE_URL; ?>Main/Pages/Logout.php" class="nav-link">Çıkış Yap</a>
                             <a href="<?php echo BASE_URL; ?>Main/Pages/MyProfile.php" class="nav-link">Profilim</a>
+                            <a href="<?php echo BASE_URL; ?>Main/Pages/Logout.php" class="nav-link">Çıkış Yap</a>
+
                         </div>
                     </li>
 
@@ -108,16 +106,12 @@ if (isset($_POST['empty_cart'])) {
                     </li>
                 <?php endif; ?>
 
-
-
             </ul>
 
 
-
-
-            <form class="d-flex" method="GET">
-                <input class="form-control me-4" type="search" placeholder="Aradığınız ürün, kategori, marka " aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Ara</button>
+            <form class="d-flex" method="GET" action="<?php echo BASE_URL; ?>Main/Pages/search.php">
+                <input class="form-control me-4" type="search" placeholder="Aradığınız ürün, kategori, marka " aria-label="Search" name="search_term">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit" name="search_term">Ara</button>
             </form>
 
 

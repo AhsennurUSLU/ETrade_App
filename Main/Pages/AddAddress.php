@@ -131,7 +131,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['addAddress'])) {
                             <input type="text" id="address_title" name="address_title" class="form-control" required>
                         </div>
 
-                        <button type="submit" name="addAddress" class="btn btn-success">Ekle</button>
+                        <button type="submit" name="addAddress" class="btn" style="background-color: #3C5B6F; color:white;">Ekle</button>
                     </form>
                 </div>
             </div>
