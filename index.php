@@ -16,6 +16,7 @@
         <?php include __DIR__ . "/Main/MainContent/_mainSlider.php"; ?>
         
     </div>
+ 
     <br>
     <br>
     <br>

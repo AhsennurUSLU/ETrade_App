@@ -1,7 +1,15 @@
 <?php
-// Gerekli dosyaların dahil edilmesi
-require "../Aconfig.php";
-include "../../Main/Libs/connect.php";
+
+require_once "../Aconfig.php";
+
+session_start();
+// Eğer kullanıcı giriş yapmamışsa, giriş sayfasına yönlendir
+if(!isset($_SESSION['user_id'])) {
+    header("Location: Login.php");
+    exit();
+}
+require_once "../Libs/functions.php";
+require_once "../../Main/Libs/connect.php";
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
@@ -9,14 +17,21 @@ require '../../vendor/autoload.php';
 
 $id = $_GET["id"];
 $result = getMessageById($id);
-$selectedMessage = mysqli_fetch_assoc($result);
+
+if ($result) {
+    $selectedMessage = mysqli_fetch_assoc($result);
+    $replyEmail = $selectedMessage['email'];
+    $replyName = $selectedMessage['name'];
+} else {
+    echo "Mesaj bulunamadı.";
+    exit();
+}
 
 
-$replyEmail = $_GET['email'];
-$replyName = $_GET['name'];
-$replySubject = $_POST['subject'];
-$replyMessage = $_POST['content'];
+$replySubject = $_POST['subject'] ?? '';
+$replyMessage = $_POST['content'] ?? '';
 
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 $mail = new PHPMailer(true);
 
 try {
@@ -59,7 +74,7 @@ try {
     echo "Mesajınız gönderilemedi. Hata: {$mail->ErrorInfo}";
 }
 
-
+}
 
 // Mesaj bilgilerini ve yanıt formunu içeren HTML kodu
 include "../Views/_Aheader.php";
@@ -84,11 +99,11 @@ include "../Views/_Anavbar.php";
                     </div>
                     <div class="mb-3">
                         <label for="subject" class="form-label">Mesaj Konusu</label>
-                        <input type="text" class="form-control" id="subject" name="subject"  readonly>
+                        <input type="text" class="form-control" id="subject" name="subject" >
                     </div>
                     <div class="mb-3">
                         <label for="content" class="form-label">Mesaj İçeriği</label>
-                        <textarea class="form-control" id="content" name="content" rows="4" readonly></textarea>
+                        <textarea class="form-control" id="content" name="content" rows="4" ></textarea>
                     </div>
                     <hr>
                 

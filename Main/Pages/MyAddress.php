@@ -63,18 +63,18 @@ $user_id = $_SESSION['id'];
 
 
 
-        <a type="button" class="btn" style="background-color: #3C5B6F; color:white;" href="AddAddress.php?id=<?php echo $user_id; ?>">Adres Ekle</a>
+        <a type="button" class="btn" style="background-color: #3C5B6F; color:white;" href="AddAddress.php">Adres Ekle</a>
             <br>
             <br>
             <?php
-            // Adresleri veritabanından çek
+           
             $sql = "SELECT * FROM address INNER JOIN address_info ON address.id = address_info.address_id WHERE address_info.user_id = ?";
             if ($stmt = mysqli_prepare($connection, $sql)) {
                 mysqli_stmt_bind_param($stmt, "i", $user_id);
                 mysqli_stmt_execute($stmt);
                 $result = mysqli_stmt_get_result($stmt);
 
-                // Adres varsa ekrana yazdır
+             
                 if ($result && mysqli_num_rows($result) > 0) {
                 while ($row = mysqli_fetch_assoc($result)) {
             ?>

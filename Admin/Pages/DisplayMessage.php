@@ -2,6 +2,13 @@
 
 <?php  
 
+session_start();
+// Eğer kullanıcı giriş yapmamışsa, giriş sayfasına yönlendir
+if(!isset($_SESSION['user_id'])) {
+    header("Location: Login.php");
+    exit();
+}
+
 
 include "../../Main/Libs/connect.php";
 include "../Libs/functions.php";
@@ -57,24 +64,24 @@ function getMessageById(int $id) {
                         
                             <div class="mb-3">
                                 <label for="name" class="form-label">İsim</label>
-                                <input type="text" class="form-control " id="name" value="<?php echo $selectedMessage["name"]; ?>" name="name">
+                                <input type="text" class="form-control " id="name" value="<?php echo $selectedMessage["name"]; ?>" name="name" readonly>
                                
                             </div>
                             <div class="mb-3">
                                 <label for="email" class="form-label">Gönderen E-posta</label>
-                                <input type="email" class="form-control " id="email" value="<?php echo $selectedMessage["email"]; ?>" name="email">
+                                <input type="email" class="form-control " id="email" value="<?php echo $selectedMessage["email"]; ?>" name="email" readonly>
                                
                             </div>
                             <div class="mb-3">
                                 <label for="subject" class="form-label">Mesaj Konusu</label>
-                                <input type="text" class="form-control" id="subject" name="subject" value="<?php echo $selectedMessage["subject"]; ?>">
+                                <input type="text" class="form-control" id="subject" name="subject" value="<?php echo $selectedMessage["subject"]; ?>" readonly>
                             </div>
                             <div class="mb-3">
                                 <label for="message" class="form-label">Mesaj İçeriği</label>
-                                <input type="text" class="form-control" id="message" name="message" value="<?php echo $selectedMessage["message"]; ?>">
+                                <input type="text" class="form-control" id="message" name="message" value="<?php echo $selectedMessage["message"]; ?>" readonly>
                             </div>
                            
-                            <a class='btn btn-light' type='submit' name='replyMessage' href="ReplyMessage.php?id=<?php echo $id; ?>" >Yanıtla</a>
+                            <a class='btn btn-light' type='submit' name='replyMessage' href="ReplyMessage.php?id=<?php echo $selectedMessage["id"]; ?>" >Yanıtla</a>
 
                         </form>
                     </div>

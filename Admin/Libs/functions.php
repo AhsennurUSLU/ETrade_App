@@ -1,5 +1,6 @@
 <?php 
 
+
 // Kategori ID'si getirme
 
 function getCategoryById(int $categoryId) {
@@ -123,9 +124,26 @@ mysqli_close($connection);
 return $result;
 }
 
+if (!function_exists('getMessageById')) {
+function getMessageById($id) {
+    include "../../Main/Libs/connect.php";
 
+    $sql = "SELECT * FROM messages WHERE id = ?";
+    if ($stmt = mysqli_prepare($connection, $sql)) {
+        mysqli_stmt_bind_param($stmt, "i", $id);
+        mysqli_stmt_execute($stmt);
+        $result = mysqli_stmt_get_result($stmt);
+        if ($result && mysqli_num_rows($result) > 0) {
+          //  return mysqli_fetch_assoc($result);
+          return $result;
+        } else {
+            return null;
+        }
+    }
+    return null;
+}
 
-
+}
 
 ?>
 

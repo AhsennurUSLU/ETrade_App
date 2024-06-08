@@ -9,57 +9,42 @@
 require_once "../../Main/Libs/connect.php";
 
 
+
+
+
 session_start();
-
-function login($connection, $email, $password) {
-    // Veritabanı sorgusu
-    $query = "SELECT id, email, password FROM admin WHERE email = ?";
-    if ($stmt = mysqli_prepare($connection, $query)) {
-        $param_email = $email;
-        mysqli_stmt_bind_param($stmt, "s", $param_email);
-
-        if (mysqli_stmt_execute($stmt)) {
-            mysqli_stmt_store_result($stmt);
-
-            if (mysqli_stmt_num_rows($stmt) == 1) {
-                mysqli_stmt_bind_result($stmt, $id, $email, $password);
-                if (mysqli_stmt_fetch($stmt)) {
-                    if (password_verify($password, $password)) {
-
-                        $_SESSION["loggedin"] = true;
-                        $_SESSION["id"] = $id;
-                        $_SESSION["email"] = $email;
-                      
-
-                        header("location: ../home.php?id=" . $id);
-                    } else {
-                       echo "Yanlış Şifre girdiniz.";
-                    }
-                }
-            } else {
-                echo "Yanlış E-mail girdiniz.";
-            }
-        } else {
-            echo "Bilinmeyen bir hata oluştu";
-        }
-        mysqli_stmt_close($stmt);
-    }
-}
 
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['email']) && isset($_POST['password'])) {
     $email = trim($_POST['email']);
     $password = trim($_POST['password']);
 
-    if (login($connection, $email, $password)) {
-        header('Location: ../home.php');
-        exit();
-    } else {
-        echo "Geçersiz e-posta veya şifre. Lütfen tekrar deneyin.";
+    // Veritabanı sorgusu
+    $query = "SELECT id, email FROM admin WHERE email = ? AND password = ?";
+    if ($stmt = $connection->prepare($query)) {
+        $stmt->bind_param("ss", $email, $password);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        if ($result->num_rows === 1) {
+            $user = $result->fetch_assoc();
+            // Oturum yönetimi
+            $_SESSION['user_id'] = $user['id'];
+            $_SESSION['email'] = $user['email'];
+            $_SESSION['loggedin'] = time();
+            header('Location: ../home.php');
+            exit();
+        } else {
+            echo "Geçersiz e-posta veya şifre. Lütfen tekrar deneyin.";
+        }
+        $stmt->close();
     }
 }
 
 $connection->close();
 ?>
+
+
+
 
 
 

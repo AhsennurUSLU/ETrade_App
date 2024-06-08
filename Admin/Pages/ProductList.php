@@ -3,6 +3,13 @@
 
 <?php
 
+session_start();
+// Eğer kullanıcı giriş yapmamışsa, giriş sayfasına yönlendir
+if(!isset($_SESSION['user_id'])) {
+    header("Location: Login.php");
+    exit();
+}
+
 include "../../Main/Libs/connect.php";
 include "../Libs/functions.php";
 
@@ -83,7 +90,7 @@ $result = mysqli_query($connection, $sql);
                                 echo "<td>" ."<a class='btn btn-light' type='submit' name='editCategory' href='EditProduct.php?id=$product_id' >Düzenle</a>". "</td>";
                                 echo "<td>" . "<a class='btn btn-light' type='submit' name='deleteCategory' href='DeleteProduct.php?id=$product_id' >Sil</a>"."</td>";
                                 echo "</tr>";
-                            }
+                            }   
                         } else {
                             echo "<tr><td colspan='12'>Kategori veya ürün bulunamadı.</td></tr>";
                         }

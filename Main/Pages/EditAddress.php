@@ -11,11 +11,11 @@ if (!isset($_SESSION['id'])) {
 include "../Libs/functions.php";
 
 $user_id = $_SESSION['id'];
-
+$address_id = isset($_GET['id']) ? $_GET['id'] : 0;
 // Kullanıcı bilgilerini çek
 $sql = "SELECT * FROM address WHERE id = ?";
 if ($stmt = mysqli_prepare($connection, $sql)) {
-    mysqli_stmt_bind_param($stmt, "i", $user_id);
+    mysqli_stmt_bind_param($stmt, "i", $address_id);
     mysqli_stmt_execute($stmt);
     $result = mysqli_stmt_get_result($stmt);
 
@@ -63,7 +63,7 @@ mysqli_close($connection);
         <div class="col-9 ">
             <div class="card-body">
                 <div class="container">
-                    <h2>Adres Ekle</h2>
+                    <h2>Adres Düzenle</h2>
                     <form action="EditAddress.php" method="POST">
                         <div class="row">
                             <div class="col-6">

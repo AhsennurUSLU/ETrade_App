@@ -3,6 +3,14 @@
 
 <?php
 
+session_start();
+// Eğer kullanıcı giriş yapmamışsa, giriş sayfasına yönlendir
+if(!isset($_SESSION['user_id'])) {
+    header("Location: Login.php");
+    exit();
+}
+
+
 include "../../Main/Libs/connect.php";
 include "../Libs/functions.php";
 
