@@ -1,5 +1,9 @@
+
+<?php if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+} ?>
 <?php
-session_start();
+
 include "../../config.php";
 require "../Libs/connect.php";
 
@@ -227,5 +231,4 @@ mysqli_close($connection);
 <?php include "../Views/_scripts.php"  ?>
 
 <?php include "../Views/_footer.php"; ?>
-
 

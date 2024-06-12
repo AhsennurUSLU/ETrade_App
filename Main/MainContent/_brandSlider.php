@@ -63,9 +63,9 @@
 </head>
 
 <body>
-
+<h2>Markalarımız</h2>
   <div class="carousel-wrapper">
-
+  
     <div class="owl-carousel owl-theme">
       <?php foreach ($brands as $brand) : ?>
         <div class="item">

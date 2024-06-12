@@ -48,7 +48,7 @@ if (isset($_POST["login"])) {
                             $_SESSION["loggedin"] = true;
                             $_SESSION["id"] = $id;
                             $_SESSION["email"] = $email;
-                            // $_SESSION["userType"] = $userType;
+                          
 
                             header("location: MyProfile.php?id=" . $id);
                         } else {
@@ -68,8 +68,6 @@ if (isset($_POST["login"])) {
 }
 
 ?>
-
-
 
 
 
@@ -125,3 +123,4 @@ if (isset($_POST["login"])) {
 <?php include "../Views/_scripts.php"  ?>
 
 <?php include "../Views/_footer.php"; ?>
+

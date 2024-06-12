@@ -18,6 +18,8 @@ if (isset($_GET['action'])) {
     }
 }
 
+// Yönlendirme
 header('Location: MyCart.php');
 exit;
+
 ?>

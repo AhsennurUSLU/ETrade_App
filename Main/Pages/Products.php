@@ -53,6 +53,15 @@ mysqli_close($connection);
         display: flex;
         justify-content: flex-end;
     }
+    .no-decoration {
+    text-decoration: none;
+    color: inherit; /* Varsayılan metin rengini kullan */
+}
+
+.no-decoration:hover {
+    text-decoration: none;
+}
+
 </style>
 
 <div class="container mt-5">
@@ -67,6 +76,7 @@ mysqli_close($connection);
                 $price = $row['product_price'];
                 echo "<div class='col-md-3 mb-4'>";
                 echo "  <div class='card'>";
+                echo   "<a href='ProductDetails.php?product_id=$product_id' class='no-decoration'>";
                 echo "      <img src='$image' class='card-img-top' alt='$name'>";
                 echo "      <div class='card-body'>";
                 echo "          <h5 class='card-title'>$name</h5>";
@@ -78,6 +88,7 @@ mysqli_close($connection);
                 echo "              <button type='submit' name='add_to_cart' class='btn' style='background-color: #3C5B6F; color:white;'>Sepete Ekle</button>";
                 echo "          </form>";
                 echo "      </div>";
+                echo "</a>";
                 echo "  </div>";
                 echo "</div>";
             }
@@ -88,7 +99,8 @@ mysqli_close($connection);
     </div>
 </div>
 
- <script>
+
+<script>
 document.addEventListener('DOMContentLoaded', function() {
     const forms = document.querySelectorAll('.add-to-cart-form');
 
@@ -103,8 +115,11 @@ document.addEventListener('DOMContentLoaded', function() {
             xhr.onload = function() {
                 if (xhr.status === 200) {
                     const response = JSON.parse(xhr.responseText);
-                    const cartCount = document.querySelector('.badge');
-                    cartCount.textContent = response.cart_count;
+                    const cartCount = document.querySelector('.navbar .badge');
+                    
+                    if (response.status === 'success') {
+                        cartCount.textContent = response.cart_count;
+                    }
 
                     // Bilgilendirme alerti
                     alert(response.message);
@@ -115,9 +130,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
-</script>  
-
-
+</script>
 
 <?php include __DIR__ . "/../Views/_scripts.php"; ?>
 <?php include __DIR__ . "/../Views/_footer.php"; ?>

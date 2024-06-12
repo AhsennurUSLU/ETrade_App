@@ -49,7 +49,7 @@ require_once __DIR__ . '/../Libs/functions.php';
                             $yol =  BASE_URL . "Main/Pages/MyCart.php";
                             $yol2 =  BASE_URL . "Main/Libs/functions.php";
                             if ($cart_count > 0) {
-                                foreach ($_SESSION['cart'] as $product_id => $quantity) {
+                                foreach ($_SESSION['cart'] as $product_id => $quantity) {   
                                     $product = getProductById($product_id);
                                     if ($product) {
                                         $product_name = $product['name'];
