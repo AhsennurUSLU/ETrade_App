@@ -55,6 +55,10 @@ function getMessageById(int $id) {
         <?php include "../Views/_Anavbar.php"; ?>
         <br><br><br><br><br>
         <div class="container">
+
+        <div><a href="MessageBox.php"><i class="fa fa-arrow-left" ></i> Mesaj Kutusu</a></div>
+<br>
+<br>
             <div class="col-6">
                 <div class="card p-4">
                     <div class="card-body p-3">

@@ -46,19 +46,19 @@ try {
 
     // E-posta bilgileri
     $mail->setFrom('etradeinfo7@gmail.com', 'EtradeApp'); // Gönderen e-posta adresi
-    $mail->addAddress('$replyEmail', '$replyName');  // Alıcı e-posta adresi
+    $mail->addAddress($replyEmail, $replyName);  // Alıcı e-posta adresi
     $mail->addReplyTo('etradeinfo7@gmail.com', 'EtradeApp'); // Yanıtlayan kişinin bilgileri
 
     // İçerik
     $mail->isHTML(true);
     $mail->Subject = $replySubject;
     $mailContent = "
-        <h2>Atrade uygulama Mesajı</h2>
-        <p><strong>Ad:</strong> {EtradeApp}</p>
-        <p><strong>E-posta:</strong> {etradeinfo7@gmail.com}</p>
+        <h2>Etrade uygulama Mesajı</h2>
+        <p><strong>Ad:</strong> EtradeApp</p>
+        <p><strong>E-posta:</strong> etradeinfo7@gmail.com</p>
         <p><strong>Konu:</strong> {$replySubject}</p>
         <p><strong>Mesaj:</strong>{$replyMessage}</p>
-        <p>{$replyContent}</p>
+        
     ";
     $mail->Body = $mailContent;
 
@@ -88,7 +88,7 @@ include "../Views/_Anavbar.php";
         <div class="card p-4">
             <div class="card-body p-3">
                 <h6 class="mb-4">Yanıtla</h6>
-                <form action="ReplyMessage.php" method="POST">
+                <form action="ReplyMessage.php?id=<?php echo $id; ?>" method="POST">
                     <div class="mb-3">
                         <label for="name" class="form-label">İsim</label>
                         <input type="text" class="form-control" id="name" value="<?php echo $replyName; ?>" name="name" readonly>

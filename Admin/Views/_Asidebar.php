@@ -26,7 +26,7 @@
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>Mesajlar</a>
                         <div class="dropdown-menu bg-transparent border-0">
                             <a href="<?php echo BASE_URL; ?>Pages/MessageBox.php" class="dropdown-item">Mesaj Kutusu</a>
-                            <a href="typography.html" class="dropdown-item">Mesaj Gönder</a>
+                          
                         </div>
                     </div>
 

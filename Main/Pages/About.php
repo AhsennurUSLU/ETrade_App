@@ -5,6 +5,7 @@
 
 
 <div class="container mt-5 mb-5 my-5 ">
+<img src="../../Assets/images/genel/hakkimizda.jpg" alt="Hakkımızda" class="img-fluid mb-4">
     <h1 class="mb-4">Hakkımızda</h1>
     <p>Biz E-Trade App olarak, kullanıcılarımıza en iyi alışveriş deneyimini sunmak amacıyla kurulmuş bir e-ticaret platformuyuz. Müşteri memnuniyetini ön planda tutarak, kaliteli ürünleri uygun fiyatlarla sunmayı hedefliyoruz.</p>
     <p>2010 yılında kurulan şirketimiz, o günden bugüne sürekli olarak kendini geliştirmekte ve yenilikçi çözümler sunmaktadır. Ekibimiz, e-ticaret sektöründe yılların deneyimine sahip profesyonellerden oluşmaktadır.</p>
