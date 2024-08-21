@@ -1,9 +1,24 @@
-<?php include __DIR__ . "/../../config.php"; ?>
+<?php
+
+include __DIR__ . "/../../config.php"; 
+session_start();
+
+if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
+    header("Location: " . BASE_URL . "Main/Pages/Login.php");
+    exit();
+}
+
+$userId = $_SESSION["id"];
+?>
+
+
+
 <?php include __DIR__ . "/../Libs/connect.php"; ?>
 
 
 <?php require __DIR__ . "/../Views/_header.php"; ?>
 <?php require __DIR__ . "/../Views/_navbar.php"; ?>
+
 
 
 <div class="container mt-5">

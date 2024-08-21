@@ -9,7 +9,7 @@ if (session_status() === PHP_SESSION_NONE) {
 if (isset($_POST['empty_cart'])) {
     unset($_SESSION['cart']);
 
-    header("Location: Pages/Categories.php");
+    header("Location: ../Pages/Categories.php");
 
 }
 
@@ -22,6 +22,7 @@ function control_input($data)
 
     return $data;
 }
+
 
 
 
@@ -161,11 +162,6 @@ function getDistrict()
         return "'data' anahtarı mevcut değil veya bir dizi değil.";
     }
 }
-
-
-
-
-
 
 
 ?>

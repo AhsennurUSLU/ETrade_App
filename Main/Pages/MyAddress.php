@@ -76,8 +76,10 @@ $user_id = $_SESSION['id'];
 
              
                 if ($result && mysqli_num_rows($result) > 0) {
+                
                 while ($row = mysqli_fetch_assoc($result)) {
             ?>
+            
                     <div class="card small-card">
                         <div class="card-header"> <?php echo $row['address_title']; ?> </div>
                         <div class="card-body">

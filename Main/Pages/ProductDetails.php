@@ -29,7 +29,7 @@ if (isset($_GET['product_id'])) {
                 <?php echo $row['description']; ?>
             </div>
             <div class="add-to-cart">
-                <form action="add_to_cart.php" method="POST">
+                <form action="add_to_cart2.php" method="POST">
                     <input type="hidden" name="product_id" value="<?php echo $product_id; ?>">
                     <input type="number" name="quantity" value="1" min="1">
                     <button type="submit">Sepete Ekle</button>

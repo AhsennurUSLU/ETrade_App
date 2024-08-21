@@ -2,16 +2,24 @@
 session_start();
 include "../../config.php";
 require "../Libs/connect.php";
+include "../Libs/functions.php";
 
 if (!isset($_SESSION['id'])) {
     header("location: Login.php");
     exit;
 }
 
-include "../Libs/functions.php";
+
+$address_id = isset($_GET['id']) ? $_GET['id'] : null;
+
+if ($address_id === null) {
+  
+    header("location: MyAddress.php");
+    exit;
+}
 
 $user_id = $_SESSION['id'];
-$address_id = isset($_GET['id']) ? $_GET['id'] : 0;
+
 // Kullanıcı bilgilerini çek
 $sql = "SELECT * FROM address WHERE id = ?";
 if ($stmt = mysqli_prepare($connection, $sql)) {
@@ -19,15 +27,21 @@ if ($stmt = mysqli_prepare($connection, $sql)) {
     mysqli_stmt_execute($stmt);
     $result = mysqli_stmt_get_result($stmt);
 
+   
     if ($result && mysqli_num_rows($result) > 0) {
         $selectedAddress = mysqli_fetch_assoc($result);
     } else {
+        echo "Adres bulunamadı!";
         $selectedAddress = null;
+        exit;
     }
-    mysqli_stmt_close($stmt);
+   // mysqli_stmt_close($stmt);
 }
 
-if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['editAddress'])) {
+
+
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['EditAddress'])) {
+   
     $city = mysqli_real_escape_string($connection, $_POST['city']);
     $district = mysqli_real_escape_string($connection, $_POST['district']);
     $neighborhood = mysqli_real_escape_string($connection, $_POST['neighborhood']);
@@ -40,13 +54,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['editAddress'])) {
         // Güncelleme işlemi
         $sql = "UPDATE address SET city=?, district=?, neighborhood=?, postal_code=?, full_address=?, address_title=? WHERE id=?";
         if ($stmt = mysqli_prepare($connection, $sql)) {
-            mysqli_stmt_bind_param($stmt, "ssssssi", $city, $district, $neighborhood, $postal_code, $full_address, $address_title, $user_id);
+            mysqli_stmt_bind_param($stmt, "ssssssi", $city, $district, $neighborhood, $postal_code, $full_address, $address_title, $address_id);
             mysqli_stmt_execute($stmt);
             mysqli_stmt_close($stmt);
             header("location: MyAddress.php");
             exit;
+            
         }
+       
     }
+    else{
+        echo "Address ID: " . $address_id;
+
+    }
+}else{
+    echo "post hatası";
 }
 
 mysqli_close($connection);
@@ -64,7 +86,8 @@ mysqli_close($connection);
             <div class="card-body">
                 <div class="container">
                     <h2>Adres Düzenle</h2>
-                    <form action="EditAddress.php" method="POST">
+                   
+                    <form action="EditAddress.php" method="POST" enctype="multipart/form-data">  
                         <div class="row">
                             <div class="col-6">
                                 <label for="city" class="form-label">İl:</label>
@@ -121,7 +144,8 @@ mysqli_close($connection);
                             <label for="address_title" class="form-label">Adres Başlığı</label>
                             <input type="text" id="address_title" name="address_title" class="form-control" value="<?php echo isset($selectedAddress["address_title"]) ? $selectedAddress["address_title"] : ''; ?>">
                         </div>
-                        <button type="submit" name="editAddress" class="btn btn-success">Düzenle</button>
+                        <input type="submit" name="EditAddress" value="Güncelle" class="btn"  style="background-color: #3C5B6F; color:white">
+                    
                     </form>
                 </div>
             </div>
